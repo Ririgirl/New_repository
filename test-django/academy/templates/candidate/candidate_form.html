@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Анкета кандидата</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="{% static "css/indexdjango-1.css" %}">
+</head>
+<body>
+	<div class="container">
+		<h1>Шаг 1. Заполните анкету и дайте ответы на вопросы</h1>
+		<div class="row justify-content-md-center">
+			<div class="col-md-6">
+				<form action="{% url 'candidate' %}" method="post">
+					{% csrf_token %}
+					{% for field in form %}
+					<div class="form-group">
+						{{ field.label}}
+						{{ field }}
+					</div>
+					{% endfor %}
+					<button type="submit" class="btn btn-primary">Отправить анкету</button>
+				</form>
+			</div>
+			<div class="col-md-6">
+				<h4>Вопросы на которые вам необходимо ответить</h4>
+				<br>
+				{% for qu in quest1 %}
+				{{ qu.answer }}<br><br>
+				{% endfor %}
+			</div>
+		</div><br><br>
+		<h2>В данной форме, в поле <strong>Num Answer</strong> необходимо ввести ответ на вопросы <strong>без пробелов!!!</strong></h2>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>

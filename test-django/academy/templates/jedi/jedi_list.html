@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ваши кандидаты</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="{% static "css/indexdjango-1.css" %}">
+</head>
+<body>
+	<div class="container">
+		<h1>Шаг 2. Посмотрите ваших кандидатов</h1>
+		<h5>
+			Заявки поданные с планеты с планеты 
+			{% for jedi in field %}
+				{% if jedi.id == id.id %}
+					{{ jedi.planet }}
+				{% endif %}
+			{% endfor %}
+			Вам, {{ id }}
+		</h5>
+		<br>
+		{% for jedi in field %}
+			{% for cand in field_cand %}
+				{% if jedi.id == id.id %}
+					{% if jedi.planet == cand.planet %}
+						<a href="cand{{ cand.id }}">{{ cand.name }}</a><br>
+					{% endif %}
+				{% endif %}
+			{% endfor %}
+		{% endfor %}
+	</div>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="{% static "css/indexdjango-1.css" %}">
+</body>
+</html>

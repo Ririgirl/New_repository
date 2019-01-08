@@ -1,0 +1,27 @@
+.container{
+	text-align:center;
+}
+h1{
+	padding-bottom:3%;
+	padding-top:3%;
+}
+img{
+	width:20%;
+	height:30%;
+	padding-top:8%;
+	padding-bottom:7%;
+}
+.col-md-6{
+	margin:0;
+	padding:0;
+}
+figure img {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+figure:hover img {
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3);
+}
